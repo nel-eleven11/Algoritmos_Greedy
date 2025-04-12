@@ -1,0 +1,54 @@
+%! TEX root = ./main.tex
+\documentclass{article}
+
+\usepackage{graphicx} % Required for inserting images
+\graphicspath{ {./images/} }
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage[english]{babel}
+\setlength{\parindent}{0pt}
+\newtheorem*{prop}{Proposición}
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+
+\title{Ejercicio 1}
+
+\author{JOAQUIN ANDRE PUENTE GRAJEDA}
+\date{April 2025}
+
+\begin{document}
+
+    \maketitle
+
+    \section*{Ejercicio 1}
+    \subsection*{a) Propuesta}
+    Para la ejecución del algoritmo se propone la ejecución del programa que
+    tome menor tiempo de primero, seguido de los programas de menor tiempo. Es decir,
+    la ejecución de los programas en órden de tiempo de ejecución ascendente.
+
+    \subsection*{b) Tiempo de ejecución}
+    La tarea se divide en dos pasos, el primer paso es ordenar el conjunto de tareas,
+    y el segundo paso es ejecutar cada una de las tareas.\\
+    Utilizando Merge Sort podemos ordenar el conjunto de tareas con un tiempo $O(n \cdot logn)$\\
+    El segundo paso es calendarizar y ejecutar las tareas el cual toma un tiempo de $O(n)$\\
+    $\therefore$ El tiempo de ejecución del algoritmo es $O(n \cdot logn)$
+    
+    \subsection*{c) Demostración es óptimo}
+    \begin{proof}
+        Supongamos que tenemos un calendario donde tenemos dos tareas $a_i$, $a_j$ tales
+        que su tiempo de ejecución $p_i > p_j$. Los tiempos de ejecución de ejecución son:
+        \[
+            c_i = t + p_i
+        \]
+        \[
+            c_j = t + p_i + p_j 
+        \]
+        Al sumar los tiempos tenemos $2t+2p_i+p_j$
+        Si cambiamos el órden de ejecución de $a_i$ y $a_j$ tendríamos el tiempo
+        total de $2t+2p_j+p_i$. Y dado que $p_i > p_j$, el tiempo de ejecución es
+        menor en el primer caso. Por lo tanto el ordenamiento de las tareas en tiempo
+        de ejecución si afacta y logra la mínima suma posible.
+
+
+    \end{proof}
+
+\end{document}
